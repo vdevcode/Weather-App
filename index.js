@@ -53,23 +53,38 @@ function getWeatherData () {
 }
 
 function showWeatherData(data){
-    let {humidity,pressure,sunrise,sunset,wind_speed} = data.current
+    let {humidity,pressure,sunrise,sunset,wind_speed,temp,clouds,dew_point,uvi} = data.current
     timezone.innerHTML = data.timezone
     countryEl.innerHTML = data.lat + 'N' + data.lon + 'E'
-
     currentWeatherItemsEl.innerHTML = `
-            <div class="weather-item">
+        <div class="weather-item">
             <div class="">Độ ẩm</div>
             <div class="">${humidity}%</div>
         </div>
+        <div class="weather-item">
+        <div class="">mây</div>
+        <div class="">${clouds}%</div>
+    </div>
         <div class="weather-item">
             <div class="">Sức ép</div>
             <div class="">${pressure}</div>
         </div>
         <div class="weather-item">
+            <div class="">Điểm sương</div>
+            <div class="">${dew_point}</div>
+        </div>
+        <div class="weather-item">
             <div class="">Tốc độ gió</div>
             <div class="">${wind_speed}</div>
         </div>
+        <div class="weather-item">
+            <div class="">Cường độ nắng</div>
+            <div class="">${uvi}</div>
+        </div>
+        <div class="weather-item">
+        <div class="">Nhiệt độ</div>
+        <div class="">${temp}%</div>
+    </div>
         <div class="weather-item">
             <div class="">Bình minh</div>
             <div class="">${window.moment(sunrise * 1000).format('HH:mm a')} </div>
@@ -88,8 +103,8 @@ function showWeatherData(data){
             <img src="http://openweathermap.org/img/wn//${day.weather[0].icon}@4x.png" alt="weather icon" class="w-icon">
             <div class="other">
                 <div class="day">${window.moment(day.dt*1000).format('dddd')}</div>
-                <div class="temp">Sáng - ${day.temp.night}&#176;C</div>
-                <div class="temp">Ngày - ${day.temp.day}&#176;C</div>
+                <div class="temp">Tối - ${day.temp.night}&#176;C</div>
+                <div class="temp">Sáng - ${day.temp.day}&#176;C</div>
             </div>
             
             `
@@ -98,8 +113,8 @@ function showWeatherData(data){
             <div class="weather-forecast-item">
                 <div class="day">${window.moment(day.dt*1000).format('ddd')}</div>
                 <img src="http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png" alt="weather icon" class="w-icon">
-                <div class="temp">Sáng - ${day.temp.night}&#176;C</div>
-                <div class="temp">Ngày - ${day.temp.day}&#176;C</div>
+                <div class="temp">Tối - ${day.temp.night}&#176;C</div>
+                <div class="temp">Sáng - ${day.temp.day}&#176;C</div>
             </div>
             
             `

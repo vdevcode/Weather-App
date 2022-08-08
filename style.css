@@ -19,8 +19,6 @@ body {
     background: url('https://wallpapercave.com/wp/wp5518412.jpg') 50%;
     background-repeat: no-repeat;
     background-size: cover;
-    overflow: hidden;
-    height: 100vh;
 
 }
 
@@ -81,7 +79,7 @@ body {
 
 .future-forecast {
     display: flex;
-    position: fixed;
+   
     background: rgba(0, 0, 0, 0.4);
     padding: 3rem 1rem;
     width: 100%;
